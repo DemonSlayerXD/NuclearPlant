@@ -4,10 +4,11 @@
 #include<math.h>
 #include<Windows.h>
 
-float i,j,x,y,r1=80,r2=5,r3=27.5,r4=6,r5=6,r6=23,r7=2,r8=3,r9=6,r10=18,r11=10,r12=26,r13=14,angle, angle_radians;
+float i,j,x,y,r1=80,r2=5,r3=27.5,r4=6,r5=6,r6=23,r7=2,r8=3,r9=6,r10=18,r11=10,r12=26,r13=14,angle,angle_radians;
 int flag=0,p=0;
 
 void Diagram();
+void init();
 
 void Delay(int x)
 {
@@ -498,6 +499,7 @@ void TurbineBlades()
 void Rotation()
 {
 	float th = 2.0;
+	glPushMatrix();
 	for (int k = 0; k < 10; k++)
 	{
 		glTranslatef(255, 138, 0.0);
@@ -523,6 +525,7 @@ void Rotation()
 		TurbineBlades();
 		glFlush();
 	}
+	glPopMatrix();
 	glFlush();
 }
 
@@ -682,7 +685,6 @@ void Points2()
 void Working()
 {
 	Diagram();
-	glClearColor(0, 0, 0, 0);
 	glColor3f(0.1, 0.0, 0.0);
 	glBegin(GL_LINES);
 	glVertex3i(48, 122, 1);
@@ -894,6 +896,7 @@ void Working()
 
 void Welcome()
 {
+	glClearColor(1.0, 1.0, 1.0, 1.0);
 	glClear(GL_COLOR_BUFFER_BIT);
 	glColor3f(1, 0, 0);
 
@@ -927,11 +930,12 @@ void Welcome()
 	for (int i = 0; i < strlen(msg6); i++)
 		glutBitmapCharacter(GLUT_BITMAP_9_BY_15, msg6[i]);
 
-	glutSwapBuffers();
+	glFlush();
 }
 
 void Diagram()
 {
+	glClearColor(1.0, 1.0, 1.0, 1.0);
 	glClear(GL_COLOR_BUFFER_BIT);
 	Coolant();
 	ContainerWater1();
@@ -957,14 +961,11 @@ void Functions(int id)
 {
 	switch (id)
 	{
-		case 1: glClear(GL_COLOR_BUFFER_BIT);
-				Welcome();
+		case 1: Welcome();
 				break;
-		case 2: glClear(GL_COLOR_BUFFER_BIT);
-				Diagram();
+		case 2: Diagram();
 				break;
-		case 3: glClear(GL_COLOR_BUFFER_BIT);
-				Working();
+		case 3: Working();
 				break;
 		case 4: exit(0);
 	}
