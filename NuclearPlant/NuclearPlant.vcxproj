@@ -145,7 +145,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source\Nuclear.cpp" />
-    <ClCompile Include="Source\NuclearPlant.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glut32.dll" />

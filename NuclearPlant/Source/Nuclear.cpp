@@ -469,7 +469,7 @@ void ContainerWater2()
 	glEnd();
 }
 
-void Fig1()
+void TurbineBlades()
 {
 	glBegin(GL_POINTS);
 	glColor3f(0.0, 0.0, 0.0);
@@ -503,7 +503,7 @@ void Rotation()
 		glTranslatef(255, 138, 0.0);
 		glRotatef(th, 0.0, 0.0, 1.0);
 		glTranslatef(-255, -138, 0.0);
-		Fig1();
+		TurbineBlades();
 		th+=2;
 		Delay(1000);
 		glBegin(GL_POLYGON);
@@ -520,7 +520,7 @@ void Rotation()
 		glTranslatef(255, 138, 0.0);
 		glRotatef(th, 0.0, 0.0, 1.0);
 		glTranslatef(-255, -138, 0.0);
-		Fig1();
+		TurbineBlades();
 		glFlush();
 	}
 	glFlush();
@@ -855,33 +855,34 @@ void Working()
 		glVertex2f(224 - i, 50);
 		glEnd();
 		glFlush();
-		Delay(100);
+		Delay(200);
 	}
 	for (i = 0; i < 4; i = i + 1)
 	{
-		glColor3f(0.0, 0.0, 1.0);
 		glBegin(GL_QUADS);
+		glColor3f(1.0, 1.0, 1.0);
 		glVertex2f(185, 100-i);
-		glVertex2f(189, 100-i);
 		glColor3f(0.0, 0.0, 1.0);
+		glVertex2f(189, 100-i);
 		glVertex2f(189, 53-i);
+		glColor3f(1.0, 1.0, 1.0);
 		glVertex2f(185, 53-i);
 		glEnd();
 		glFlush();
-		Delay(100);
+		Delay(200);
 	}
 	for (i = 0; i < 3; i = i + 1)
 	{
 		glColor3f(0.0, 0.0, 1.0);
 		glBegin(GL_QUADS);
-		glVertex2f(150 - i, 108);
+		glVertex2f(152 - i, 108);
 		glVertex2f(180 - i, 108);
 		glColor3f(1.0, 1.0, 1.0);
 		glVertex2f(180 - i, 105);
-		glVertex2f(150 - i, 105);
+		glVertex2f(152 - i, 105);
 		glEnd();
 		glFlush();
-		Delay(100);
+		Delay(200);
 	}
 	Points2();
 	Steam();
@@ -947,7 +948,7 @@ void Diagram()
 	Generator();
 	ConnectingPipe();
 	Pump2();
-	Fig1();
+	TurbineBlades();
 	Bulb();
 	glFlush();
 }
